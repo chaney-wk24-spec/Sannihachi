@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SANNIHACHI</title>
+  <link rel="stylesheet" href="../css/log%20in.css" />
+  <style>
+    .form-container {
+      display: none;
+    }
+    .form-container.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <li><a href="home.html"><img id="logo-image" src="../image/LOGO.png" alt="SANNIHACHI.logo" /></a></li>
+      </div>
+    </div>
+  </header>
+
+  <div class="background">
+    <div class="login-container">
+      <!-- LOGIN FORM -->
+      <div id="loginFormContainer" class="form-container active">
+        <h1>LOGIN</h1>
+        <form id="loginForm">
+          <div class="signup">
+            <p class="signup-link">Don't have an account? <a href="#" onclick="toggleForm('signup')">SIGNUP</a></p>
+          </div>
+          <div class="input-group">
+            <label for="email">EMAIL ADDRESS:</label>
+            <input type="text" id="email" name="email" required />
+          </div>
+          <div class="input-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div class="input-group">
+            <label for="password">PASSWORD:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <div class="submit">
+            <button type="submit">LOGIN</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div id="signupFormContainer" class="form-container">
+        <h1>SIGNUP</h1>
+        <form id="signupForm">
+          <div class="signup">
+            <p class="signup-link">Already have an account? <a href="#" onclick="toggleForm('login')">LOGIN</a></p>
+          </div>
+          <div class="input-group">
+            <label for="new-email">EMAIL ADDRESS:</label>
+            <input type="text" id="new-email" name="new-email" required />
+          </div>
+          <div class="input-group">
+            <label for="new-username">Username:</label>
+            <input type="text" id="new-username" name="new-username" required />
+          </div>
+          <div class="input-group">
+            <label for="new-password">PASSWORD:</label>
+            <input type="password" id="new-password" name="new-password" required />
+          </div>
+          <div class="submit">
+            <button type="submit">SIGN UP</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<script>
+  // Load accounts from localStorage or initialize defaults
+  let account = JSON.parse(localStorage.getItem("accounts")) || [
+    { email: "user1@example.com", username: "user1", password: "password123" },
+    { email: "user2@example.com", username: "user2", password: "password456" },
+    { email: "admin@example.com", username: "admin", password: "123456" }
+  ];
+  localStorage.setItem("accounts", JSON.stringify(account)); // Save if first time
+
+  // LOGIN handler
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+
+    const matched = account.find(acc =>
+      (acc.email === email || acc.username === username) && acc.password === password
+    );
+
+    if (matched) {
+      alert("Login successful!！");
+      sessionStorage.removeItem("authOption");
+      sessionStorage.setItem("email", JSON.stringify(matched.email));
+      sessionStorage.setItem("user", JSON.stringify(matched.username));
+      window.location.href = "home.html";
+    } else {
+      alert("Wrong username or password!");
+    }
+  });
+
+  // SIGNUP handler
+  document.getElementById("signupForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("new-email").value.trim();
+    const username = document.getElementById("new-username").value.trim();
+    const password = document.getElementById("new-password").value;
+
+    const exists = account.find(acc =>
+      acc.email === email || acc.username === username
+    );
+
+    if (exists) {
+      alert("Accout already exists. Please use a different email or username. ");
+      return;
+    }
+
+    const newUser = { email, username, password };
+    account.push(newUser);
+    localStorage.setItem("accounts", JSON.stringify(account)); // Save to localStorage
+
+    alert("login successful！");
+    sessionStorage.setItem("authOption", "login");
+    toggleForm("login");
+    document.getElementById("signupForm").reset();
+  });
+
+  function toggleForm(formType) {
+    const loginForm = document.getElementById("loginFormContainer");
+    const signupForm = document.getElementById("signupFormContainer");
+
+    if (formType === "signup") {
+      loginForm.classList.remove("active");
+      signupForm.classList.add("active");
+    } else {
+      signupForm.classList.remove("active");
+      loginForm.classList.add("active");
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", function () {
+    const authOption = sessionStorage.getItem("authOption");
+    toggleForm(authOption === "signup" ? "signup" : "login");
+  });
+</script>
+
+</body>
+</html>

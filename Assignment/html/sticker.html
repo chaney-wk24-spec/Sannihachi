@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANNIHACHI</title>
+    <link rel="stylesheet" href="../css/headerfooter.css">
+    <link rel="stylesheet" href="../css/sticker.css">
+</head>
+<body>
+    <header>
+        <div class="header-cotainer">
+
+            <div class="logo">
+                <li><a href="home.html"><img id="logo-image" src="../image/LOGO.png" alt='SANNIHACHI.logo'></a></li>  
+            </div>  
+
+            <div class="nav-menu">
+                <ul class="research">
+                    <div class="search-icon-container" id="searchIcon">
+                        <input type="text" class="search-input hidden" id="searchInput" placeholder="Search...">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                    </div>
+                    <li id="login-nav"><a href="login.html" onclick="setSession('login')">LOGIN</a></li>
+                    <li id="signup-nav"><a href="login.html" onclick="setSession('signup')">SIGN IN</a></li>
+                    <li id="logout-nav" style="display: none;"><a href="#">LOGOUT</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="button">
+            <ul>
+           <ul>
+            <li><a class="Home" href="../html/home.html">Home</a></li>
+            <li><a class="Sticker" href="../html/sticker.html">Stickers</a></li>
+            <li><a class="Character" href="../html/charcter.html">Character</a></li>
+            <li><a class="Collaboration" href="../html/Collaboration.html">Collaboration</a></li>
+            <li><a class="About us" href="../html/aboutUs.html">About Us</a></li>
+            <li><a class="Contact us" href="../html/contact us.html">Contact Us</a></li>
+            </ul>
+            </ul>
+        </div>
+    </header>
+    <section class="background-section">
+
+        <div id="auto-sticker-container"></div>
+
+        <button id="needhelp" class="needhelp-btn">
+            <img src="../image/need help.png" alt="needhelp-icon">
+        </button>
+        
+        <div id="chatbot-container">
+            <div id="chat-header">
+                <span>Need Help？</span>
+                <button id="close-chat">×</button>
+            </div>
+            <div id="chat-messages">
+                <div class="message bot-message">Hello! I'm Cy Fly. Is there anything I can help you with? Buzz buzz~</div>
+            </div>
+            <div id="chat-input">
+                <input type="text" id="user-input" placeholder="type your questions">
+                <button id="send-btn">SEND</button>
+            </div>
+        </div>
+
+        
+    
+        <script src="../script/header.js"></script>
+        <script src="../script/script.js"></script>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SANNIHACHI</p>
+        <p>Use quirky and cute stickers to make the chat more fun!</p>
+        
+    </footer>  
+
+</body>
+<script>
+const searchIcon = document.getElementById('searchIcon'); // 找到图标
+const searchInput = document.getElementById('searchInput'); // 找到输入框
+
+searchIcon.addEventListener('click', function() {
+    searchInput.classList.toggle('hidden'); // 切换hidden类
+    
+    if (!searchInput.classList.contains('hidden')) {
+        searchInput.focus(); // 如果显示出来了，就让光标自动进入输入框
+    }
+})
+</script>
+<script>
+        const stickerspic = [
+            { src: "../image/cy fly_1.png", alt: "Confusion Cy Fly Sticker 1", index:1 },
+            { src: "../image/tomato san_1.png", alt: "Let's Go Tomato San Sticker 1", index:1 },
+            { src: "../image/qr chan_1.png", alt: "Tired ROU Chan Sticker 1", index:1 },
+            { src: "../image/potat_1.png", alt: "Hehehe Potat Sticker 1", index:1 },
+            { src: "../image/tomato san_2.png", alt: "Relax Tomato San Sticker 2", index:2 },
+            { src: "../image/cy fly_2.png", alt: "I'm Fine Cy Fly Sticker 2", index:2 },
+            { src: "../image/potat_2.png", alt: "Cool Potat Sticker 2", index:2 },
+            { src: "../image/qr chan_2.png", alt: "Speechless ROU Chan Sticker 2", index:2 }
+        ];
+
+        window.onload = function() {
+            const inputElement = document.getElementById('searchInput');
+            const gallery = document.getElementById('auto-sticker-container');
+
+            function generateStickerGallery(filteredStickers) {
+                let html = '';
+
+                for (let i = 0; i < filteredStickers.length; i += 4) {
+                    html += '<div class="sticker-container">';
+
+                    // Left: item i and i+1
+                    html += '<div class="sticker-container-left">';
+                    if (filteredStickers[i]) html += createStickerHTML(filteredStickers[i]);
+                    if (filteredStickers[i + 1]) html += createStickerHTML(filteredStickers[i + 1]);
+                    html += '</div>';
+
+                    // Right: item i+2 and i+3
+                    html += '<div class="sticker-container-right">';
+                    if (filteredStickers[i + 2]) html += createStickerHTML(filteredStickers[i + 2]);
+                    if (filteredStickers[i + 3]) html += createStickerHTML(filteredStickers[i + 3]);
+                    html += '</div>';
+
+                    html += '</div>'; // end of sticker-container
+                }
+
+                gallery.innerHTML = html;
+            }
+
+            function createStickerHTML(sticker) {
+                // Extract name by removing "Sticker X" from alt text
+                const name = sticker.alt.replace(/\s*Sticker\s*\d*$/, '');
+                
+                return `
+                    <div class="sticker">
+                        <img id="image${sticker.index}" src="${sticker.src}" alt="${sticker.alt}">
+                        <div class="sticker-name">${name}</div>
+                        <a href="${sticker.src}" download="${name}.png" onclick="return confirm('Download this sticker?')">
+                            <i class="fa-solid fa-download"></i>
+                        </a>
+                    </div>
+                `;
+            }
+
+            // Initial load
+            generateStickerGallery(stickerspic);
+
+            // Filter on input
+            inputElement.addEventListener('input', function() {
+                const searchValue = inputElement.value.toLowerCase();
+                const filtered = stickerspic.filter(sticker =>
+                    sticker.alt.toLowerCase().includes(searchValue)
+                );
+                generateStickerGallery(filtered);
+            });
+        };
+    </script>
+    
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANNIHACHI</title>
+    <link rel="stylesheet" href="../css/character.css">
+    <link rel="stylesheet" href="../css/headerfooter.css">
+</head>
+<body>
+    <header>
+        <div class="header-cotainer">
+
+            <div class="logo">
+                <li><a href="home.html"><img id="logo-image" src="../image/LOGO.png" alt='SANNIHACHI.logo'></a></li>  
+            </div>  
+
+            <div class="nav-menu">
+                <ul class="research">
+                    <li id="login-nav"><a href="login.html" onclick="setSession('login')">LOGIN</a></li>
+                    <li id="signup-nav"><a href="login.html" onclick="setSession('signup')">SIGN IN</a></li>
+                    <li id="logout-nav" style="display: none;"><a href="#">LOGOUT</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="button">
+            <ul>
+           <ul>
+            <li><a class="Home" href="../html/home.html">Home</a></li>
+            <li><a class="Sticker" href="../html/sticker.html">Stickers</a></li>
+            <li><a class="Character" href="../html/charcter.html">Character</a></li>
+            <li><a class="Collaboration" href="../html/Collaboration.html">Collaboration</a></li>
+            <li><a class="About us" href="../html/aboutUs.html">About Us</a></li>
+            <li><a class="Contact us" href="../html/contact us.html">Contact Us</a></li>
+            </ul>
+            </ul>
+        </div>
+    </header>
+    <section class="background-section">
+        <section class="background-section">
+            <section class="Collaboration-img-container">
+                <!-- character 1 -->
+                <div class="name zoomed" data-target="cy-fly">
+                    <img class="collaboration-img" src="../image/cy fly.png" alt='cy fly'>
+                    <h1>CY FLY</h1>
+                </div>
+                <!-- character 2 -->
+                <div class="name" data-target="rou-chan">
+                    <img class="collaboration-img" src="../image/rou chan.png" alt='rou chan'>
+                    <h1>ROU CHAN</h1>
+                </div>
+                <!-- character 3 -->
+                <div class="name" data-target="tomato-san">
+                    <img class="collaboration-img" src="../image/tomato.png" alt='tomato san'>
+                    <h1>TOMATO SAN</h1>
+                </div>
+                <!-- character 4 -->
+                <div class="name" data-target="potat">
+                    <img class="collaboration-img" src="../image/potat.png" alt='potat'>
+                    <h1>POTAT</h1>
+                </div>
+            </section>
+            
+            <section class="Collaboration-text-container">
+                <div class="character-profiles">
+                <!-- CY FLY -->
+                <div id="cy-fly" class="paragraph active">
+                    <h2><span class="label">Name:</span> <span class="value">CY FLY</span></h2>
+                    <h2><span class="label">Gender:</span> <span class="value">Girl</span></h2>
+                    <h2><span class="label">Birthday:</span> <span class="value">June 1st</span></h2>
+                    <h2><span class="label">Best Feature:</span></h2>
+                    <ul class="features">
+                        <li>Smart and blur at the same time.</li>
+                        <li>A pink fly that escaped from insect genetic modification experiment.</li>
+                        <li>Always defends her friends. Afraid of pesticide. Her favourite anime is Reborn and she will be depressed if she can't watch Reborn.</li>
+                    </ul>
+                </div>
+
+                <!-- ROU CHAN -->
+                <div id="rou-chan" class="paragraph">
+                    <h2><span class="label">Name:</span> <span class="value">ROU CHAN</span></h2>
+                    <h2><span class="label">Gender:</span> <span class="value">Girl</span></h2>
+                    <h2><span class="label">Birthday:</span> <span class="value">September 6th</span></h2>
+                    <h2><span class="label">Best Feature:</span></h2>
+                    <ul class="features">
+                        <li>Sunshine axolotl with flame on her body.</li>
+                        <li>Cheers up everyone, settles the problem with the 'everything is fine' mindset. Sometimes she will turn into meat if too stressed. The flame on her body will not harm anyone, only if she wants it to burn someone.</li>
+                    </ul>
+                </div>
+
+                <!-- TOMATO SAN -->
+                <div id="tomato-san" class="paragraph">
+                    <h2><span class="label">Name:</span> <span class="value">TOMATO SAN</span></h2>
+                    <h2><span class="label">Gender:</span> <span class="value">Girl</span></h2>
+                    <h2><span class="label">Birthday:</span> <span class="value">December 8th</span></h2>
+                    <h2><span class="label">Best Feature:</span></h2>
+                    <ul class="features">
+                        <li>Mean but nice.</li>
+                        <li>A tomato who knows Chinese Kung Fu.</li>
+                        <li>Not only using Chinese Kung Fu on idiots but also her friends. Her language is sharp but actually caring for her friends. Her favourite game is Identity V.</li>
+                    </ul>
+                </div>
+
+                <!-- POTAT -->
+                <div id="potat" class="paragraph">
+                    <h2><span class="label">Name:</span> <span class="value">POTAT</span></h2>
+                    <h2><span class="label">Gender:</span> <span class="value">Girl</span></h2>
+                    <h2><span class="label">Birthday:</span> <span class="value">April 3rd</span></h2>
+                    <h2><span class="label">Best Feature:</span></h2>
+                    <ul class="features">
+                        <li>Kind but sleepy.</li>
+                        <li>A green potato.</li>
+                        <li>She could recognize every small detail around her, including emotions. She'll feel sleepy if the temperature is too hot or too cold.</li>
+                    </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+
+        <button id="needhelp" class="needhelp-btn">
+            <img src="../image/need help.png" alt="needhelp-icon">
+        </button>
+        
+        <div id="chatbot-container">
+            <div id="chat-header">
+                <span>Need Help？</span>
+                <button id="close-chat">×</button>
+            </div>
+            <div id="chat-messages">
+                <div class="message bot-message">Hello! I'm Cy Fly. Is there anything I can help you with? Buzz buzz~</div>
+            </div>
+            <div id="chat-input">
+                <input type="text" id="user-input" placeholder="type your questions">
+                <button id="send-btn">SEND</button>
+            </div>
+        </div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const characters = document.querySelectorAll('.name');
+                const paragraphs = document.querySelectorAll('.paragraph');
+                let currentZoomed = document.querySelector('.name[data-target="cy-fly"]');
+
+                characters.forEach(character => {
+                    character.addEventListener('click', function() {
+                        const targetId = this.getAttribute('data-target');
+                        
+                        if (currentZoomed) {
+                        currentZoomed.classList.remove('zoomed');
+                        }
+                        this.classList.add('zoomed');
+                        currentZoomed = this;
+                        
+                        paragraphs.forEach(para => {
+                            para.classList.remove('active');
+                            if (para.id === targetId) {
+                                para.classList.add('active');
+                            }
+                        });
+                        
+                        document.querySelector('.Collaboration-text-container').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            });
+        </script>
+        <script src="../script/header.js"></script>
+        <script src="../script/script.js"></script>
+
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SANNIHACHI</p>
+        <p>Use quirky and cute stickers to make the chat more fun!</p>
+    
+    </footer>  
+
+</body>
+</html>
