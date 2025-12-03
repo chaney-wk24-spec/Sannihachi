@@ -1,0 +1,101 @@
+section.product-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+a.Collaboration {
+  text-decoration: underline;
+}
+
+section.product-container {
+  display: flex;
+  flex-direction: row;
+}
+
+img#img1 {
+  width: 600px;
+}
+
+img#img2 {
+  width: 290px;
+}
+
+img#img4 {
+  width: 581px;
+}
+
+.explain {
+  width: 500px;
+  position: absolute;
+  color: #422218;
+}
+
+.hoodie {
+  gap: 20px;
+}
+
+.product-container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.paperbeg,
+.hoodie,
+.cookie,
+.cup,
+.zus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1, h2 {
+  height: 20px;
+}
+
+h2,h3{
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.sticker-container .product-img {
+  transition: opacity 0.3s ease;
+}
+
+.paperbeg:hover .product-img,
+.hoodie:hover .product-img,
+.cookie:hover .product-img,
+.cup:hover .product-img,
+.zus:hover .product-img {
+  opacity: 0.3;
+  scale: 1.05;
+}
+
+.paperbeg .explain,
+.hoodie .explain,
+.cookie .explain,
+.cup .explain,
+.zus .explain {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.paperbeg:hover .explain,
+.hoodie:hover .explain,
+.cookie:hover .explain,
+.cup:hover .explain,
+.zus:hover .explain {
+  opacity: 1;
+  scale: 1.05;
+}
