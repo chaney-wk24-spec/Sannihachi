@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANNIHACHI</title>
+    <link rel="stylesheet" href="../css/headerfooter.css">
+    <link rel="stylesheet" href="../css/Collaboration.css">
+          
+</head>
+<body>
+    <header>
+        <div class="header-cotainer">
+
+            <div class="logo">
+                <li><a href="home.html"><img id="logo-image" src="../image/LOGO.png" alt='SANNIHACHI.logo'></a></li>  
+            </div>  
+
+            <div class="nav-menu">
+                <ul class="research">
+                    <li id="login-nav"><a href="login.html" onclick="setSession('login')">LOGIN</a></li>
+                    <li id="signup-nav"><a href="login.html" onclick="setSession('signup')">SIGN IN</a></li>
+                    <li id="logout-nav" style="display: none;"><a href="#">LOGOUT</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="button">
+            <ul>
+           <ul>
+            <li><a class="Home" href="../html/home.html">Home</a></li>
+            <li><a class="Sticker" href="../html/sticker.html">Stickers</a></li>
+            <li><a class="Character" href="../html/charcter.html">Character</a></li>
+            <li><a class="Collaboration" href="../html/Collaboration.html">Collaboration</a></li>
+            <li><a class="About us" href="../html/aboutUs.html">About Us</a></li>
+            <li><a class="Contact us" href="../html/contact us.html">Contact Us</a></li>
+            </ul>
+            </ul>
+        </div>
+    </header>
+    
+    <section class="product-container">
+        <div class="product-container1">
+            <!-- paperbeg -->
+            <div class="paperbeg">
+                <img id="img1" src="../image/Paper%20bag.jpeg" alt="paper beg nassion" class="product-img">
+                <div class="explain 1">
+                    <h1>NASSION × SANNIHACHI Collaborative Paper Bag</h1>
+                    <h2>"Not just a paper bag. It carries a feeling."</h2>
+                    <h3>SANNIHACHI collaborates with Nassion to create an eco-friendly kraft paper bag with minimalist hand-drawn illustrations. It’s a reminder that even small gestures deserve thoughtful presentation, turning an everyday item into a statement of gentle emotion.</h3>                
+                </div>
+            </div>
+
+            <!-- hoodie -->
+            <div class="hoodie">
+                <img id="img2" src="../image/Collaboration POTAT.png" alt="hoodie POTAT" class="product-img">
+                <img id="img2" src="../image/Collaboration CY FLY.png" alt="hoodie cy fly" class="product-img">
+                <div class="explain 2">
+                    <h1>Uniqlo × CY FLY & POTAT Collaboration Series</h1>
+                    <h2>"Where Uniqlo comfort meets CY FLY & POTAT charm."</h2>
+                    <h3>This collection merges Uniqlo’s comfort with CY FLY & POTAT’s soft, healing characters, made from eco-friendly cotton. Featuring white hoodies with delicate illustrations, it symbolizes courage and staying true to oneself.</h3>                
+                </div>
+            </div>
+
+            <!-- cookie -->
+            <div class="cookie">
+                <img id="img1" src="../image/Collaboration TOMATO.png" alt="cookie" class="product-img">
+                <div class="explain 3">
+                    <h1>TOMATO × Cookie Holic Collaborative Cookies</h1>
+                    <h2>"Every bite is a gentle hug."</h2>
+                    <h3>TOMATO collaborates with Cookie Holic to bring irresistible, hand-drawn character cookies made with premium ingredients. Baked without additives, these sweet treats offer comfort and joy in every bite.</h3>                
+                </div>
+            </div>
+        </div>
+
+        <div class="product-container2">
+            <!-- cup -->
+            <div class="cup">
+                <img id="img4" src="../image/Collaboration ROU CHAN.png" alt="miniso cup" class="product-img">
+                <div class="explain 4">
+                    <h1>ROU CHAN × MINISO Ceramic Mug</h1>
+                    <h2>"Ceramic comfort, ROU CHAN charm."</h2>
+                    <h3>ROU CHAN teams up with MINISO to create a ceramic mug with gentle illustrations, made from eco-conscious materials. It’s designed to bring comfort and calm with every sip.</h3>                
+                </div>
+            </div>
+
+            <!-- zus -->
+            <div class="zus">
+                <img id="img4" src="../image/cup.jpeg" alt="Paper Bag" class="product-img">
+                <div class="explain 5">
+                    <h1>ZUS × SANNIHACHI Reusable Cup Series</h1>
+                    <h2>"Cuteness brewed daily with ZUS × SANNIHACHI."</h2>
+                    <h3>ZUS collaborates with SANNIHACHI to launch a reusable cup that adds charm to your daily routine. Made from eco-conscious materials, it’s stylish, functional, and reduces plastic use.</h3>                
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     <button id="needhelp" class="needhelp-btn">
+            <img src="../image/need help.png" alt="needhelp-icon">
+        </button>
+        
+        <div id="chatbot-container">
+            <div id="chat-header">
+                <span>Need Help？</span>
+                <button id="close-chat">×</button>
+            </div>
+            <div id="chat-messages">
+                <div class="message bot-message">Hello! I'm Cy Fly. Is there anything I can help you with? Buzz buzz~</div>
+            </div>
+            <div id="chat-input">
+                <input type="text" id="user-input" placeholder="type your questions">
+                <button id="send-btn">SEND</button>
+            </div>
+        </div>
+    
+        <script src="../script/header.js"></script>
+        <script src="../script/script.js"></script>
+
+    
+    <footer>
+        <p>&copy; 2025 SANNIHACHI</p>
+        <p>Use quirky and cute stickers to make the chat more fun!</p>
+        
+    </footer>      
+</body>
+
+</html>
